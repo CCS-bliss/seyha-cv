@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-brand-50: #fdfaf7;
+  --color-brand-100: #fbf4ee;
+  --color-brand-200: #f6e8dd;
+  --color-brand-300: #ecd2bd;
+  --color-brand-400: #deae93;
+  --color-brand-500: #b56e4c;
+  --color-brand-600: #a45d3c;
+  --color-brand-700: #884b30;
+  --color-brand-800: #6e3d28;
+  --color-brand-900: #5a3222;
+}
+
+@layer utilities {
+  /* Custom animation utilities */
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide navigation, widgets, and buttons in standard print */
+@media print {
+  body {
+    background-color: white !important;
+    color: black !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: block !important;
+  }
+  
+  /* Reset print columns */
+  .print-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
